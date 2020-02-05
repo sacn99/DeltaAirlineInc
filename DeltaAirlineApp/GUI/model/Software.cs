@@ -12,7 +12,6 @@ namespace GUI.model
     class Software
     {
         private String flightFileName;
-        private String biggestTourisDestinationFileName;
 
         private List<City> cities;
         private List<Airline> airlines;
@@ -22,18 +21,16 @@ namespace GUI.model
         public Software()
         {
             flightFileName = "..\\..\\..\\Data\\testdata.csv";
-            biggestTourisDestinationFileName = "";
             cities = new List<City>();
             airlines = new List<Airline>();
-            criterions = new String[3];
+            criterions = new String[4];
             criterions[0] = "Ninguno - mostar todos";
             criterions[1] = "Ciudad de origen";
-            criterions[2] = "Retardo";
+            criterions[2] = "Retardo positivo";
+            criterions[3] = "Retardo negativo";
             ReaddAndAddFlights();
         }
 
-
-    
         public String[] getCriterions()
         {
             return criterions;
@@ -47,24 +44,13 @@ namespace GUI.model
                 StreamReader sr = new StreamReader(flightFileName);
 
                 line = "";
-                //0-FlightDate, 1-Carrier, 2-Latitud, 3-Longitud, 4-OriginCityName, 5-OriginStateName, 
-                //6-Latitud, 7-Longitud, 8-DestCityName, 9-DestStateName, 10-DepDelayArrDelay, 11-Cancelled
-                line = sr.ReadLine();
-                Console.WriteLine(line);
+                // 0-FlightDate, 1-Carrier, 2-OriginCityName, 3-OriginStateName, 
+                // 4-DestCityName, 5-DestStateName, 6-DepDelay, 7-ArrDealy, 8-Cancelled
+                //Console.WriteLine(line);
                 while ((line = sr.ReadLine()) != null)
                 {
                     ///Console.WriteLine(line);
-                    String[] info = line.Split(';');
-
-                    Console.WriteLine(line);
-                    double latOrigin = double.Parse(info[2]);
-                    double longOrigin = double.Parse(info[3]);
-                    double latDest = double.Parse(info[2]);
-                    double longDest = double.Parse(info[3]);
-
-                    int delay = int.Parse(info[10]);
-
-                    Boolean cancel = info[11].Equals("0");
+                    String[] info = line.Split(',');
 
                     //search airline retunr airline or null
                     //false create  return new airline
@@ -76,24 +62,24 @@ namespace GUI.model
                         airlines.Add(airline);
                     }
 
-                    City orig = SearchCity(latOrigin, longOrigin);
+                    City orig = SearchCity(info[2]);
                     if (orig == null)
-                    {   //City(double lat, double lon, String city, String state, Boolean tourist)
-                        orig = new City(latOrigin, longOrigin, info[4], info[5], false);
+                    {   //City(String city, String state)
+                        orig = new City(info[2], info[3]);
                         cities.Add(orig);
                     }
-                    City dest = SearchCity(latDest, longDest);
+                    City dest = SearchCity(info[4]);
                     if (dest == null)
                     {
-                        dest = new City(latDest, longDest, info[8], info[9], false);
+                        dest = new City(info[4], info[5]);
                         cities.Add(dest);
                     }
 
                     DateTime date = DateTime.Parse(info[0]);
+                    int cancel = Int32.Parse(info[8]);
 
                     //Flight(DateTime date, int delay, City dest, City orig, Boolean cancel)
-                    airline.GetFlights().Add(new Flight(date, delay, dest, orig, cancel));
-
+                    airline.GetFlights().Add(new Flight(date, orig, dest, Int32.Parse(info[6]), cancel == 1 ? true : false));
                 }
 
                 sr.Close();
@@ -122,13 +108,13 @@ namespace GUI.model
         }
         
         //busca la ciudad correspondiente a la latitud y longitud dada por parametro, si no la encuentra retorna null
-        public City SearchCity(double lat, double lon)
+        public City SearchCity(String name)
         {
             City city = null;
             Boolean flag = false;
             for (int num = 0; num < cities.Count && !flag; num++)
             {
-                if (cities[num].GetLatitude() == lat && cities[num].GetLongitude() == lon)
+                if (cities[num].Equals(name))
                 {
                     city = cities[num];
                 }
@@ -155,26 +141,6 @@ namespace GUI.model
             }
             return nameCitiesDest;
         }
-
-        /*
-        public List<String> GetNameTouristCities()
-        {
-            List<String> nameTouristCities = new List<String>();
-            foreach (City city in cities)
-            {
-                if (city.GetTourist())
-                {
-                    nameTouristCities.Add(city.GetName());
-                }
-                
-            }
-            return nameTouristCities;
-        }
-        */
-        /*
-         * criterions[0] = "Ninguno";
-            criterions[1] = "Ciudad de origen";
-            criterions[2] = "Retardo";*/
 
         public void Filtro(String criterio, String type)
         {

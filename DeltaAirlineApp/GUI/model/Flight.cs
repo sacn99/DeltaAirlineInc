@@ -12,15 +12,15 @@ namespace GUI.model
         private int delay;
         private Boolean cancelled;
 
-        private City destination;
         private City origin;
+        private City destination;
 
-        public Flight(DateTime date, int delay, City dest, City orig, Boolean cancel)
+        public Flight(DateTime date, City orig, City dest, int delay, Boolean cancel)
         {
             this.date = date;
             this.delay = delay;
-            destination = dest;
             origin = orig;
+            destination = dest;
             cancelled = cancel;
         }
 
