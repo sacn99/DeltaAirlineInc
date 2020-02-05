@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GUI.model
 {
@@ -26,7 +22,7 @@ namespace GUI.model
 
         public Boolean SameRelationWithCity(Flight flight)
         {
-            Boolean relation = flight.GetDestination().Equals(destination); 
+            Boolean relation = flight.GetDestination().Equals(destination);
             relation = relation || flight.GetDestination().Equals(origin);
             relation = relation || flight.GetOrigin().Equals(origin);
             relation = relation || flight.GetOrigin().Equals(destination);
@@ -55,6 +51,6 @@ namespace GUI.model
         {
             return delay;
         }
-        
+
     }
 }
