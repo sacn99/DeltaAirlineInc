@@ -1,10 +1,10 @@
-01-01-17,AA,42.7482986,-73.8016968,Albany,New York,35.2140007,-80.9431,Charlotte,North Carolina,-4,-22,0
-01-01-17,AA,33.6366997,-84.4281006,Atlanta,Georgia,33.4342995,-112.012001,Phoenix,Arizona,-6,1,0
-01-01-17,B6,30.1945,-97.669899,Austin,Texas,42.3642998,-71.0052033,Boston,Massachusetts,48,25,0
-01-01-17,B6,42.3642998,-71.0052033,Boston,Massachusetts,26.0725994,-80.1527023,Fort Lauderdale,Florida,-6,-26,0
-01-01-17,DL,25.7931995,-80.2906036,Miami,Florida,40.639801,-73.7789002,New York,New York,-4,-26,0
-01-01-17,DL,33.9425011,-118.4079971,Los Angeles,California,40.639801,-73.7789002,New York,New York,-3,-25,0
-01-01-17,HA,21.3187008,-157.9219971,Honolulu,Hawaii,33.9425011,-118.4079971,Los Angeles,California,202,181,0
-01-01-17,HA,21.3187008,-157.9219971,Honolulu,Hawaii,36.080101,-115.1520004,Las Vegas,Nevada,-3,-28,0
-01-01-17,OO,33.6366997,-84.4281006,Atlanta,Georgia,41.9785996,-87.9048004,Chicago,Illinois,0,-9,0
-01-01-17,OO,30.1945,-97.669899,Austin,Texas,45.5886993,-122.5979996,Portland,Oregon,-4,-23,0
+01-01-17,AA,Albany,New York,Charlotte,North Carolina,-4,-22,0
+01-01-17,AA,Atlanta,Georgia,Phoenix,Arizona,-6,1,0
+01-01-17,B6,Austin,Texas,Boston,Massachusetts,48,25,0
+01-01-17,B6,Boston,Massachusetts,Fort Lauderdale,Florida,-6,-26,0
+01-01-17,DL,Miami,Florida,New York,New York,-4,-26,0
+01-01-17,DL,Los Angeles,California,New York,New York,-3,-25,0
+01-01-17,HA,Honolulu,Hawaii,Los Angeles,California,202,181,0
+01-01-17,HA,Honolulu,Hawaii,Las Vegas,Nevada,-3,-28,0
+01-01-17,OO,Atlanta,Georgia,Chicago,Illinois,0,-9,0
+01-01-17,OO,Austin,Texas,Portland,Oregon,-4,-23,0
