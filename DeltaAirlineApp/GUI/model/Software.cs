@@ -88,8 +88,27 @@ namespace GUI.model
             }
             catch (Exception e)
             {
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
                 Console.WriteLine("Exception: " + e.Message);
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
             }
+
+            // revision de que los datos quedan bien ingresados (cities & airlines)
+
+            for(int i = 0; i < cities.Count; i++)
+            {
+                Console.WriteLine(cities[i].GetName());
+            }
+
+            for (int i = 0; i < airlines.Count; i++)
+            {
+                Console.WriteLine(airlines[i].GetName());
+            }
+
         }
 
         //retorna la aerolinea que corresponde al codigo entregado por parametro, si no lo encuentra retorna null

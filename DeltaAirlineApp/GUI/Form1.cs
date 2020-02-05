@@ -54,6 +54,7 @@ namespace GUI
         {
             int cant = software.SearchAirline(airline).GetVisits().Count;
 
+            /**
             Console.WriteLine(cant);
             for (int i = 0; i< cant; i++)
             {
@@ -61,7 +62,7 @@ namespace GUI
                 double prop = software.SearchAirline(airline).GetVisits()[i].GetProportion();
                 double lat = software.SearchAirline(airline).GetVisits()[i].GetFlights()[0].GetDestination().GetLatitude();
                 double lon = software.SearchAirline(airline).GetVisits()[i].GetFlights()[0].GetDestination().GetLongitude();
-                
+               */ 
                 
             }
         }
