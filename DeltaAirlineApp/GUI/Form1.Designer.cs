@@ -37,9 +37,7 @@
             this.cmbCriterion1 = new System.Windows.Forms.ComboBox();
             this.cmbCriterion2 = new System.Windows.Forms.ComboBox();
             this.cmbCriterion3 = new System.Windows.Forms.ComboBox();
-            this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.cmbCriterion1Select = new System.Windows.Forms.ComboBox();
-            this.chkBoxDate = new System.Windows.Forms.CheckBox();
             this.cmbCriterion2Select = new System.Windows.Forms.ComboBox();
             this.cmbCriterion3Select = new System.Windows.Forms.ComboBox();
             this.cmbGMap1 = new System.Windows.Forms.ComboBox();
@@ -225,13 +223,6 @@
             this.cmbCriterion3.TabIndex = 13;
             this.cmbCriterion3.SelectedIndexChanged += new System.EventHandler(this.cmbCriterion3_SelectedIndexChanged);
             // 
-            // datePicker
-            // 
-            this.datePicker.Location = new System.Drawing.Point(155, 230);
-            this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(200, 20);
-            this.datePicker.TabIndex = 14;
-            // 
             // cmbCriterion1Select
             // 
             this.cmbCriterion1Select.FormattingEnabled = true;
@@ -239,16 +230,6 @@
             this.cmbCriterion1Select.Name = "cmbCriterion1Select";
             this.cmbCriterion1Select.Size = new System.Drawing.Size(121, 21);
             this.cmbCriterion1Select.TabIndex = 15;
-            // 
-            // chkBoxDate
-            // 
-            this.chkBoxDate.AutoSize = true;
-            this.chkBoxDate.Location = new System.Drawing.Point(35, 232);
-            this.chkBoxDate.Name = "chkBoxDate";
-            this.chkBoxDate.Size = new System.Drawing.Size(100, 17);
-            this.chkBoxDate.TabIndex = 16;
-            this.chkBoxDate.Text = "Fecha de vuelo";
-            this.chkBoxDate.UseVisualStyleBackColor = true;
             // 
             // cmbCriterion2Select
             // 
@@ -319,9 +300,7 @@
             this.Controls.Add(this.cmbGMap1);
             this.Controls.Add(this.cmbCriterion3Select);
             this.Controls.Add(this.cmbCriterion2Select);
-            this.Controls.Add(this.chkBoxDate);
             this.Controls.Add(this.cmbCriterion1Select);
-            this.Controls.Add(this.datePicker);
             this.Controls.Add(this.cmbCriterion3);
             this.Controls.Add(this.cmbCriterion2);
             this.Controls.Add(this.cmbCriterion1);
@@ -335,7 +314,6 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -350,9 +328,7 @@
         private System.Windows.Forms.ComboBox cmbCriterion1;
         private System.Windows.Forms.ComboBox cmbCriterion2;
         private System.Windows.Forms.ComboBox cmbCriterion3;
-        private System.Windows.Forms.DateTimePicker datePicker;
         private System.Windows.Forms.ComboBox cmbCriterion1Select;
-        private System.Windows.Forms.CheckBox chkBoxDate;
         private System.Windows.Forms.ComboBox cmbCriterion2Select;
         private System.Windows.Forms.ComboBox cmbCriterion3Select;
         private System.Windows.Forms.ComboBox cmbGMap1;

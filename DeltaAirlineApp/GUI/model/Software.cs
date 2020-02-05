@@ -25,12 +25,10 @@ namespace GUI.model
             biggestTourisDestinationFileName = "";
             cities = new List<City>();
             airlines = new List<Airline>();
-            criterions = new String[5];
-            criterions[0] = "Ninguno";
-            criterions[1] = "Ciudad de destino";
-            criterions[2] = "Ciudad de origen";
-            criterions[3] = "Retardo";
-            criterions[4] = "Ciudades turisticas";
+            criterions = new String[3];
+            criterions[0] = "Ninguno - mostar todos";
+            criterions[1] = "Ciudad de origen";
+            criterions[2] = "Retardo";
             ReaddAndAddFlights();
         }
 
@@ -71,7 +69,7 @@ namespace GUI.model
                     //search airline retunr airline or null
                     //false create  return new airline
 
-                    Airline airline = searchAirline(info[1]); 
+                    Airline airline = SearchAirline(info[1]); 
                     if(airline == null)
                     {
                         airline = new Airline(info[1], info[1]);
@@ -109,7 +107,7 @@ namespace GUI.model
         }
 
         //retorna la aerolinea que corresponde al codigo entregado por parametro, si no lo encuentra retorna null
-        public Airline searchAirline(String airlineCode)
+        public Airline SearchAirline(String airlineCode)
         {
             Airline airline = null;
             Boolean flag = false;
@@ -158,6 +156,7 @@ namespace GUI.model
             return nameCitiesDest;
         }
 
+        /*
         public List<String> GetNameTouristCities()
         {
             List<String> nameTouristCities = new List<String>();
@@ -171,30 +170,22 @@ namespace GUI.model
             }
             return nameTouristCities;
         }
-
+        */
         /*
          * criterions[0] = "Ninguno";
-            criterions[1] = "Ciudad de destino";
-            criterions[2] = "Ciudad de origen";
-            criterions[3] = "Retardo";
-            criterions[4] = "Ciudades turisticas";*/
+            criterions[1] = "Ciudad de origen";
+            criterions[2] = "Retardo";*/
 
         public void Filtro(String criterio, String type)
         {
-            if (criterio.Equals(criterions[1]))
-            {
-                foreach(Airline airline in airlines)
-                {
-                    airline.Destination(type);
-                }
-            }else if (criterio.Equals(criterions[2]))
+           if (criterio.Equals(criterions[1]) && !type.Equals(""))
             {
                 foreach (Airline airline in airlines)
                 {
                     airline.Origin(type);
                 }
             }
-            else if (criterio.Equals(criterions[3]))
+            else if (criterio.Equals(criterions[2]) && !type.Equals(""))
             {
                 Boolean delay = type.Equals("Con retraso");
                 foreach (Airline airline in airlines)
@@ -202,14 +193,14 @@ namespace GUI.model
                     airline.DelayedFlights(delay);
                 }
             }
-            else if(criterio.Equals(criterions[4]))
+            else if (criterio.Equals("Ninguno - mostar todos"))
             {
-
+                foreach (Airline airline in airlines)
+                {
+                    airline.AddAll();
+                }
             }
-            else
-            {
 
-            }
         }
 
         

@@ -12,7 +12,7 @@ namespace GUI.model
 
         private String code;
         private String name;
-
+        private int count;
         private List<Flight> flights;
 
         private List<VisitCounter> visits; 
@@ -28,9 +28,18 @@ namespace GUI.model
             //flightsDest = new Hashtable();
         }
 
-        public void AddFlight()
+        public void ActualiceCounter()
         {
+            int countt = 0;
+            foreach(VisitCounter visit in visits)
+            {
+                countt = countt + visit.GetFlights().Count;
+            }
+        }
 
+        public int GetCounter()
+        {
+            return count;
         }
 
         public List<VisitCounter> GetVisits()
